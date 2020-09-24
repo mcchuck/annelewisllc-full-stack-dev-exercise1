@@ -6,8 +6,10 @@ spl_autoload_register(function($class_name) {
   include 'classes/' .  $class_name . '.php';
 });
 
+// build output string of user cards
 $user_cards = '';
 for ($i = 0; $i < CARD_COUNT; $i++) {
+  // create user with call to json endpoint
   $user = new User(
     json_decode(
       file_get_contents('http://faker.hook.io/?property=helpers.userCard&amp;locale=en_US'),
@@ -15,6 +17,7 @@ for ($i = 0; $i < CARD_COUNT; $i++) {
     )
   );
 
+  // render user card html and append to user cards string
   $user_cards .= $user->render();
 }
 

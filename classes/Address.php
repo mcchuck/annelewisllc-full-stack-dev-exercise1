@@ -1,6 +1,12 @@
 <?php
 
+/**
+ * Address: class representing a user's address
+ */ 
 class Address {
+  /**
+   * Build Address object with passed in json
+   */ 
   public function __construct($data) {
     $this->street = $data->street;
     $this->suite = $data->suite;
@@ -10,13 +16,19 @@ class Address {
     $this->geo['lng'] = $data->geo->lng;
   }
 
+  /**
+   * Render address as html with template
+   */
   public function render() {
-    ob_start();
+    ob_start(); // start ouput buffering
     include 'templates/address.tpl.php';
 
     return ob_get_clean();
   }
 
+  /**
+   * Getter methods
+   */
   public function getStreet() {
     return $this->street;
   }

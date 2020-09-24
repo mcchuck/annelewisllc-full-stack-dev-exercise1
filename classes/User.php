@@ -4,7 +4,13 @@ spl_autoload_register(function ($class_name) {
     include $class_name . '.php';
 });
 
+/**
+ * User: class representing a user
+ */
 class User {
+  /**
+   * Build Userobject with passed in json
+   */
   public function __construct($data) {
     $this->name = $data->name;
     $this->username = $data->username;
@@ -15,13 +21,19 @@ class User {
     $this->company = new Company($data->company);
   }
 
+  /**
+   * Render user as html with template
+   */
   public function render() {
-    ob_start();
+    ob_start(); // start output buffering
     include 'templates/user.tpl.php';
 
     return ob_get_clean();
   }
 
+  /**
+   * Getter methods
+   */
   public function getName() {
     return $this->name;
   }
