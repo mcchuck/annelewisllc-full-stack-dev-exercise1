@@ -1,9 +1,5 @@
 <?php
 
-spl_autoload_register(function ($class_name) {
-    include $class_name . '.php';
-});
-
 class Company {
   public function __construct($data) {
     $this->name= $data->name;
@@ -13,7 +9,7 @@ class Company {
 
   public function render() {
     ob_start();
-    include 'company.tpl.php';
+    include 'templates/company.tpl.php';
 
     return ob_get_clean();
   }

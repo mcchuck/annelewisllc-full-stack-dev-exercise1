@@ -1,9 +1,5 @@
 <?php
 
-spl_autoload_register(function ($class_name) {
-    include $class_name . '.php';
-});
-
 class Address {
   public function __construct($data) {
     $this->street = $data->street;
@@ -16,7 +12,7 @@ class Address {
 
   public function render() {
     ob_start();
-    include 'address.tpl.php';
+    include 'templates/address.tpl.php';
 
     return ob_get_clean();
   }

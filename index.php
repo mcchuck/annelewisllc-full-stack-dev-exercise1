@@ -1,9 +1,9 @@
 <?php
 
-define('CARD_COUNT', 25);
+define('CARD_COUNT', 1);
 
 spl_autoload_register(function($class_name) {
-  include $class_name . '.php';
+  include 'classes/' .  $class_name . '.php';
 });
 
 $user_cards = '';

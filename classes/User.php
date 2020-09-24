@@ -17,7 +17,7 @@ class User {
 
   public function render() {
     ob_start();
-    include 'user.tpl.php';
+    include 'templates/user.tpl.php';
 
     return ob_get_clean();
   }
